@@ -8,7 +8,7 @@ def has_duplicates(nums):
             return True
     return False
 
-def has_dıplicates_2(nums): #bu durumda bayağı hızlı çalışıyor fakat unutmayın fazla yer kaplıyor.
+def has_duplicates_2(nums): #bu durumda bayağı hızlı çalışıyor fakat unutmayın fazla yer kaplıyor.
     counts = {} #boş bir dict oluşturulım.
     for num in nums:
         if num in counts:
@@ -19,3 +19,15 @@ def has_dıplicates_2(nums): #bu durumda bayağı hızlı çalışıyor fakat un
             counts[num] = 1
   
     return False
+
+def has_duplicates_3(nums):
+        my_set = set()
+        #set dictionary'e göre daha az memory kullandığı için 2.inci çözümden yer kullanımı bakımından daha verimli fakat hız bakımından biraz daha yavaş kalacak.
+        for i in nums:
+            # eğer set'imin içide aynı değer var ise true döndür.
+            if i in my_set:
+                return True
+            #neden eleman eklemek için else kullanmadığımı kendiniz kullanarak görebilirsiniz(daha yavaş oluyor).
+            my_set.add(i)
+        
+        return False
