@@ -1,0 +1,21 @@
+def has_duplicates(nums):
+    nums.sort()  # İlk başta listemizi "sort" ediyoruz.
+    for i in range(len(nums) - 1):
+    #Listeler 0,1,2.. diye indeksleniyor. Listemin uzunluğu ise eleman sayısı ile ilgili. Eğer (len(listem) - 1) -
+    # yaparsam for döngüsü şu şekilde olacak ==> 0,1,2... sondan bir önceki elemana kadar(dahil).
+        if nums[i] == nums[i + 1]:
+        # listemi sort ettiğim için bakmam gereken tek şey herhangi bir ikili var mı? ==> 1,1 ya da 2,2 gibi.
+            return True
+    return False
+
+def has_dıplicates_2(nums): #bu durumda bayağı hızlı çalışıyor fakat unutmayın fazla yer kaplıyor.
+    counts = {} #boş bir dict oluşturulım.
+    for num in nums:
+        if num in counts:
+            #eğer dict içinde var ise o zaman return true diyelim.
+            return True
+        else:
+            #Eğer dict içinde bu değer yok ise ekleyelim.
+            counts[num] = 1
+  
+    return False
